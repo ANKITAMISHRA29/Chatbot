@@ -7,7 +7,7 @@ function App() {
   const botMessage = useRef();
   const inputRef = useRef();
 
-  // Get current date and time
+  // Updated Date and Time Logic
   const date = new Date();
   const hours = date.getHours();
   const seconds = date.getSeconds();
@@ -15,11 +15,8 @@ function App() {
   const month = date.getMonth();
   const year = date.getFullYear();
 
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
   const [time, setTime] = useState(`${hours}:${seconds}`);
-  const [dateTime, setDateTime] = useState(`${days[day]}, ${months[month]} ${year}`);
+  const [dateTime, setDateTime] = useState(`${day}, ${month} ${year}`);
 
   const checkStatus = () => {
     const isActive = dateTime !== "Thursday, Aug 13 2022";
@@ -103,13 +100,13 @@ function App() {
     } else if (regexOwner.test(inputValue)) {
       botMessage.current.textContent = "Typing...";
       setTimeout(() => {
-        botMessage.current.textContent = "The owner of this bot is Ankita Mishra,visit her linkdln ID to know her more :linkedin.com/in/ankita-mishra-75593b24a";
+        botMessage.current.textContent = "The owner of this bot is Ankita Mishra, visit her LinkedIn ID to know her more: linkedin.com/in/ankita-mishra-75593b24a";
         inputRef.current.value = "";
       }, 2000);
     } else if (regexAge.test(inputValue)) {
       botMessage.current.textContent = "Typing...";
       setTimeout(() => {
-        botMessage.current.textContent = "I am 21 year old";
+        botMessage.current.textContent = "I am 21 years old";
         inputRef.current.value = "";
       }, 2000);
     } else if (regexHelp.test(inputValue)) {
